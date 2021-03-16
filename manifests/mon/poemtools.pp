@@ -8,7 +8,7 @@ class argo::mon::poemtools (
   }
 
   file { '/etc/argo-poem-tools/argo-poem-tools.conf':
-    content => template('templates/argo-poem-tools.conf.erb'),
+    content => template('templates/poemtools/argo-poem-tools.conf.erb'),
     require => Package['argo-poem-tools'],
   }
 }
