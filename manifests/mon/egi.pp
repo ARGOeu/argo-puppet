@@ -12,4 +12,7 @@ class argo::mon::egi {
     source  => 'puppet:///modules/argo/mon/egi/90-local.ini',
     require => Package['nordugrid-arc-nagios-plugins-egi'],
   }
+
+  package { ['condor', 'nordugrid-arc-nagios-plugins-egi']:
+  }
 }
