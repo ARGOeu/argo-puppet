@@ -18,6 +18,9 @@ class argo::mon::ncg (
     mode   => '0644',
   }
 
+  package { 'argo-nagios-tools':
+  }
+
   package { 'argo-ncg':
     ensure => $version,
   }
