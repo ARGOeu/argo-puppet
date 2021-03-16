@@ -1,4 +1,4 @@
-class syshpc::argomon::voms_htpasswd (
+class argo::mon::voms_htpasswd (
   $conf_source = 'puppet:///private/voms_htpasswd/argo-voms-htpasswd.conf',
   $localdb = false,
   $localdb_source = 'puppet:///private/voms_htpasswd/argo-voms-htpasswd.d/',
