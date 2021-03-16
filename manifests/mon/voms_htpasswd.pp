@@ -1,6 +1,7 @@
 class syshpc::argomon::voms_htpasswd (
   $conf_source = 'puppet:///private/voms_htpasswd/argo-voms-htpasswd.conf',
   $localdb = false,
+  $localdb_source = 'puppet:///private/voms_htpasswd/argo-voms-htpasswd.d/',
 ) {
   File {
     ensure => present,
@@ -27,7 +28,7 @@ class syshpc::argomon::voms_htpasswd (
     file { '/etc/argo-voms-htpasswd/argo-voms-htpasswd.d/':
       ensure  => directory,
       recurse => remote,
-      source  => 'puppet:///private/voms_htpasswd/argo-voms-htpasswd.d/',
+      source  => $localdb_source,
       require => Package['argo-nagios-tools'],
       notify  => Service['argo-voms-htpasswd'],
     }
