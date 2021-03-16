@@ -23,7 +23,7 @@ class argo::mon::ncg (
   }
 
   file { '/etc/argo-ncg/ncg-vars.conf':
-    content => template('templates/ncg/ncg-vars.conf.erb'),
+    content => template('argo/mon/ncg/ncg-vars.conf.erb'),
     require => Package['argo-ncg'],
   }
 

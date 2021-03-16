@@ -7,7 +7,7 @@ class argo::mon::amspublisher (
   }
 
   file { '/etc/argo-nagios-ams-publisher/ams-publisher.conf':
-    content => template('templates/amspublisher/ams-publisher.conf.erb'),
+    content => template('argo/mon/amspublisher/ams-publisher.conf.erb'),
     notify  => Service['ams-publisher.service'],
   }
 
