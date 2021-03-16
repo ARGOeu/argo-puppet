@@ -1,9 +1,8 @@
-class argo::mon::hostcert (
-  $hostcert = 'puppet:///private/gridcert/hostcert.pem',
-  $hostkey  = 'puppet:///private/gridcert/hostkey.pem',
-) {
+class argo::mon::hostcert {
 
-  include gridcert::package
+  include ::yum::repo::umd4
+  include ::gridcert
+  include ::gridcert::crl
 
   File {
     ensure  => present,
@@ -14,10 +13,10 @@ class argo::mon::hostcert (
   }
 
   file { '/etc/nagios/globus/hostcert.pem':
-    source  => $hostcert,
+    source  => $::gridcert::hostcert,
   }
   file { '/etc/nagios/globus/hostkey.pem':
     mode    => '0400',
-    source  => $hostkey,
+    source  => $::gridcert::hostkey,
   }
 }

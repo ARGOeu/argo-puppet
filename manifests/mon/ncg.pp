@@ -8,6 +8,7 @@ class argo::mon::ncg (
   $profiles = '',
   $conf_source = 'puppet:///private/ncg/ncg.conf',
   $localdb = false,
+  $localdb_source = 'puppet:///private/ncg/ncg-localdb.d/',
   $version = latest,
 ) {
   File {
@@ -22,7 +23,7 @@ class argo::mon::ncg (
   }
 
   file { '/etc/argo-ncg/ncg-vars.conf':
-    content => template('templates/ncg/ncg-vars.conf.erb'),
+    content => template('argo/mon/ncg/ncg-vars.conf.erb'),
     require => Package['argo-ncg'],
   }
 
@@ -35,7 +36,7 @@ class argo::mon::ncg (
     file { '/etc/argo-ncg/ncg-localdb.d':
       ensure  => directory,
       recurse => remote,
-      source  => 'puppet:///private/ncg/ncg-localdb.d/',
+      source  => $localdb_source,
     }
   }
 }
