@@ -15,6 +15,11 @@ class argo::mon (
   }
 
   include argo::mon::nagios
+  
+  package {'nagios-plugins-dummy':
+    ensure =>  present,
+  }
+
   include argo::mon::ncg
   include argo::mon::amspublisher
   include argo::mon::poemtools

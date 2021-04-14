@@ -13,6 +13,12 @@ class argo::mon::egi {
     require => Package['nordugrid-arc-nagios-plugins-egi'],
   }
 
-  package { ['condor', 'nordugrid-arc-nagios-plugins-egi']:
+  package { ['condor', 'nordugrid-arc-nagios-plugins-egi', 'nagios-plugins-igtf']:
+  }
+
+  file { '/var/lib/gridprobes/biomed':
+    ensure => directory,
+    owner  => 'nagios',
+    group  => 'nagios',
   }
 }
