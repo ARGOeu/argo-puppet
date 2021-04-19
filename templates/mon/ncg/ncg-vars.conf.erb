@@ -32,4 +32,8 @@ POEM_TOKEN = <%= @poem_token  %>
 
 # GOCDB API root URL
 # (default: https://gocdb.egi.eu/gocdbpi)
+<% if @gocdb -%>
+GOCDB_ROOT_URL = <%= @gocdb_url %>
+<% else -%>
 # GOCDB_ROOT_URL = https://gocdb.egi.eu/gocdbpi
+<% end -%>
