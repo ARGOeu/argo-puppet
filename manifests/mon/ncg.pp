@@ -7,6 +7,8 @@ class argo::mon::ncg (
   $poem_token = '',
   $profiles = '',
   $conf_source = 'puppet:///private/ncg/ncg.conf',
+  $gocdb = false,
+  $gocdb_url = 'https://gocdb.egi.eu/gocdbpi',
   $localdb = false,
   $localdb_source = 'puppet:///private/ncg/ncg-localdb.d/',
   $version = latest,
