@@ -3,7 +3,6 @@ class argo::mon (
   $robotcert     = false,
   $voms_htpasswd = false,
   $egi           = false,
-  $arcce         = false,
 ) {
   include yum::repo::argo
 
@@ -36,8 +35,5 @@ class argo::mon (
   }
   if ($egi) {
     include argo::mon::egi
-  }
-  if ($arcce) {
-    include argo::mon::arcce
   }
 }
