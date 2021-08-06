@@ -1,4 +1,6 @@
-class argo::mon::egi {
+class argo::mon::egi (
+  $local_ini='puppet:///modules/argo/mon/egi/90-local.ini',
+) {
   include yum::repo::nordugrid
 
   File {
@@ -9,7 +11,7 @@ class argo::mon::egi {
   }
 
   file { '/etc/arc/nagios/90-local.ini':
-    source  => 'puppet:///modules/argo/mon/egi/90-local.ini',
+    source  => $local_ini,
     require => Package['nordugrid-arc-nagios-plugins-egi'],
   }
 
