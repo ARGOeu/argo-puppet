@@ -3,6 +3,7 @@ class argo::mon (
   $robotcert     = false,
   $voms_htpasswd = false,
   $egi           = false,
+  $internal      = false,
 ) {
   include yum::repo::argo
 
@@ -21,8 +22,10 @@ class argo::mon (
   }
 
   include argo::mon::ncg
-  include argo::mon::amspublisher
-  include argo::mon::poemtools
+  if !$internal {
+    include argo::mon::amspublisher
+    include argo::mon::poemtools
+  }
 
   if ($gridcert) {
     include argo::mon::hostcert
@@ -35,5 +38,8 @@ class argo::mon (
   }
   if ($egi) {
     include argo::mon::egi
+  }
+  if ($internal) {
+    include argo::mon::internal
   }
 }
