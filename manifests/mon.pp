@@ -22,9 +22,10 @@ class argo::mon (
   }
 
   include argo::mon::ncg
+  include argo::mon::poemtools
+
   if !$internal {
     include argo::mon::amspublisher
-    include argo::mon::poemtools
   }
 
   if ($gridcert) {
