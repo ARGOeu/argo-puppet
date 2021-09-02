@@ -12,6 +12,9 @@ class argo::mon::internal (
     mode   => '0644'
   }
 
+  package { 'nagios-plugins-ping':
+  }
+
   file { '/etc/argo-ncg/ncg.argo-public-devel': 
     source  => $argo_public_devel,
     require => Package['argo-ncg']
