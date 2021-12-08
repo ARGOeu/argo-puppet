@@ -44,4 +44,12 @@ class argo::mon::ncg (
       source  => $localdb_source,
     }
   }
+  
+  cron::job { 'ncgReload':
+    command => '( /usr/sbin/ncg.reload.sh ) > /var/log/ncg.log 2>&1',
+    user    => 'root',
+    hour  => '*/2',
+    minute  => '15',
+    environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
+  }
 }
