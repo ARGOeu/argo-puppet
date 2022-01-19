@@ -3,6 +3,7 @@ class argo::mon (
   $robotcert     = false,
   $voms_htpasswd = false,
   $egi           = false,
+  $eudat	 = false,
   $internal      = false,
 ) {
   include yum::repo::argo
@@ -39,6 +40,9 @@ class argo::mon (
   }
   if ($egi) {
     include argo::mon::egi
+  }
+  if ($eudat) {
+    include argo::mon::eudat
   }
   if ($internal) {
     include argo::mon::internal
