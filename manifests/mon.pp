@@ -1,9 +1,10 @@
 class argo::mon (
   $gridcert      = false,
   $robotcert     = false,
+  $moncert       = false,
   $voms_htpasswd = false,
   $egi           = false,
-  $eudat	 = false,
+  $eudat	       = false,
   $internal      = false,
 ) {
   include yum::repo::argo
@@ -17,7 +18,7 @@ class argo::mon (
   }
 
   include argo::mon::nagios
-  
+
   package {'nagios-plugins-dummy':
     ensure =>  present,
   }
@@ -29,6 +30,9 @@ class argo::mon (
     include argo::mon::poemtools
   }
 
+  if ($moncert) {
+    include argo::mon::moncert
+  }
   if ($gridcert) {
     include argo::mon::hostcert
   }
