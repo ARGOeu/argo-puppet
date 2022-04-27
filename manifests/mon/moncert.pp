@@ -1,6 +1,6 @@
 class argo::mon::moncert (
-  $key  = 'puppet:///private/actualcert/moncert.key',
-  $cert = 'puppet:///private/actualcert/moncert.pem',
+  $key  = 'puppet:///private/moncert/moncert.key',
+  $cert = 'puppet:///private/moncert/moncert.pem',
 ) {
   File {
     ensure  => present,
