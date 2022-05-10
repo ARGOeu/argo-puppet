@@ -6,7 +6,6 @@ PublishMsgFile = False
 PublishMsgFileDir = /published
 PublishArgoMessaging = True
 TimeZone = UTC
-StatSocket = /var/run/argo-nagios-ams-publisher/sock
 
 <% @publisher_queues_topics.each do |key, value| -%>
 [Queue_<%=key %>]
@@ -32,5 +31,5 @@ AvroSchema = <%= value['AvroSchema'] %>
 Retry = <%= value['Retry'] %>
 Timeout = <%= value['Timeout'] %>
 SleepRetry = <%= value['SleepRetry'] %>
-  
+
 <% end -%>
