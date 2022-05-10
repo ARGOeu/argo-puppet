@@ -16,7 +16,7 @@ class argo::mon::amspublisher (
     service { 'ams-publisher-nagios.service':
       ensure  => 'running',
       enable  => true,
-      require => [ Package['argo-nagios-ams-publisher'], File['/etc/ams-publisher/ams-publisher.conf'] ],
+      require => [ Package['argo-nagios-ams-publisher'], File['/etc/ams-publisher/ams-publisher-nagios.conf'] ],
     }
   } else {
     file { '/etc/argo-nagios-ams-publisher/ams-publisher.conf':
