@@ -15,7 +15,7 @@ class argo::mon::egi (
     require => Package['nordugrid-arc-nagios-plugins-egi'],
   }
 
-  package { ['condor', 'nordugrid-arc-nagios-plugins-egi', 'nagios-plugins-igtf']:
+  package { ['condor', 'nordugrid-arc-nagios-plugins-egi', 'nagios-plugins-igtf', 'argo-probe-oidc']:
   }
 
   file { '/var/lib/gridprobes/biomed':
