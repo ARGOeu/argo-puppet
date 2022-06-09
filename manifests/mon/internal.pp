@@ -12,30 +12,30 @@ class argo::mon::internal (
     mode   => '0644'
   }
 
-  package { ['nagios-plugins-ping', 'nagios-plugins-igtf', 'nagios-plugins-nrpe', 'nagios-plugins-argo']:
+  package { ['nagios-plugins-ping', 'nagios-plugins-igtf', 'nagios-plugins-nrpe', 'nagios-plugins-argo', 'argo-probe-nagios']:
   }
 
-  file { '/etc/argo-ncg/ncg.argo-public-devel': 
+  file { '/etc/argo-ncg/ncg.argo-public-devel':
     source  => $argo_public_devel,
     require => Package['argo-ncg']
   }
 
-  file { '/etc/argo-ncg/ncg.argo-public-production': 
+  file { '/etc/argo-ncg/ncg.argo-public-production':
     source  => $argo_public_prod,
     require => Package['argo-ncg']
   }
 
-  file { '/etc/argo-ncg/ncg.localdb.contacts': 
+  file { '/etc/argo-ncg/ncg.localdb.contacts':
     source  => $localdb_contacts,
     require => Package['argo-ncg']
   }
 
-  file { '/etc/argo-ncg/ncg.localdb.sites': 
+  file { '/etc/argo-ncg/ncg.localdb.sites':
     source  => $localdb_sites,
     require => Package['argo-ncg']
   }
 
-  file { '/etc/argo-ncg/ncg.conf.d': 
+  file { '/etc/argo-ncg/ncg.conf.d':
     ensure  => directory,
     recurse => remote,
     source  => $confd,
