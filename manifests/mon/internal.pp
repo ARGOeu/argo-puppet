@@ -12,7 +12,7 @@ class argo::mon::internal (
     mode   => '0644'
   }
 
-  package { ['nagios-plugins-ping', 'nagios-plugins-igtf', 'nagios-plugins-nrpe', 'nagios-plugins-argo', 'argo-probe-nagios', 'argo-probe-poem']:
+  package { ['nagios-plugins-ping', 'nagios-plugins-igtf', 'nagios-plugins-nrpe', 'nagios-plugins-argo', 'argo-probe-nagios', 'argo-probe-poem', 'argo-probe-webapi']:
   }
 
   file { '/etc/argo-ncg/ncg.argo-public-devel':
