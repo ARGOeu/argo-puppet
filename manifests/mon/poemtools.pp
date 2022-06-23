@@ -18,6 +18,7 @@ class argo::mon::poemtools (
       command     => '/bin/argo-poem-packages.py',
       user        => 'root',
       hour        => '*/2',
+      minute      => '0',
       environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
     }
   }
