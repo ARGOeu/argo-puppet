@@ -6,7 +6,7 @@ class argo::mon::caupdate (
     notify => Exec['/bin/update_ca_bundle'],
   }
 
-  file { '/bin/update_ca_bundle':
+  file { '/usr/local/libexec/update_ca_bundle':
     ensure => present,
     owner  => root,
     group  => root,
@@ -14,6 +14,7 @@ class argo::mon::caupdate (
     source => $source,
   }
 
-  exec { '/bin/update_ca_bundle':
+  exec { '/usr/local/libexec/update_ca_bundle':
+    refreshonly => true,
   }
 }
