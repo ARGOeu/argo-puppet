@@ -3,7 +3,7 @@ class argo::mon::caupdate (
 ) {
   package{ 'ca-certificates':
     ensure => latest,
-    notify => Exec['/bin/update_ca_bundle'],
+    notify => Exec['/usr/local/libexec/update_ca_bundle'],
   }
 
   file { '/usr/local/libexec/update_ca_bundle':
