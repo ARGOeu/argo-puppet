@@ -25,6 +25,10 @@ class argo::mon (
 
   include argo::mon::ncg
 
+  if ($egi or $internal) {
+    include argo::mon::caupdate
+  }
+
   if !$internal {
     include argo::mon::amspublisher
     include argo::mon::poemtools
