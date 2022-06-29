@@ -18,6 +18,7 @@ class argo::mon::caupdate (
   }
 
   exec { '/usr/local/libexec/update_ca_bundle':
+    path        => ['/usr/bin', '/usr/sbin', '/bin'],
     subscribe   => Package['ca-policy-egi-core'],
     refreshonly => true,
   }
