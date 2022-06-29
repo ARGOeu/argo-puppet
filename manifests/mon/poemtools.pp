@@ -2,7 +2,6 @@ class argo::mon::poemtools (
   $poem_url   = '',
   $poem_token = '',
   $profiles   = '',
-  $devel      = false,
 ) {
   package {'argo-poem-tools':
     ensure => latest,
@@ -13,13 +12,11 @@ class argo::mon::poemtools (
     require => Package['argo-poem-tools'],
   }
 
-  if ($devel) {
-    cron::job { 'poemPackages':
-      command     => '/bin/argo-poem-packages.py',
-      user        => 'root',
-      hour        => '*/2',
-      minute      => '0',
-      environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
-    }
+  cron::job { 'poemPackages':
+    command     => '/bin/argo-poem-packages.py',
+    user        => 'root',
+    hour        => '*/2',
+    minute      => '0',
+    environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
   }
 }
