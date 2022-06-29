@@ -12,7 +12,9 @@ class argo::mon::robotcert (
 
   file { '/etc/nagios/globus/robotcert.pem':
     source  => $cert,
+    notify  => Exec['/usr/local/libexec/update_ca_bundle'],
   }
+
   file { '/etc/nagios/globus/robotkey.pem':
     mode    => '0400',
     source  => $key,
