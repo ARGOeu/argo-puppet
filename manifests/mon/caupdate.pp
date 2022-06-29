@@ -21,6 +21,7 @@ class argo::mon::caupdate (
   file { '/usr/local/etc/pki':
     ensure  => directory,
     recurse => true,
+    purge   => true,
     source  => $dir_source,
     notify  => Exec['/usr/local/libexec/update_ca_bundle'],
   }
