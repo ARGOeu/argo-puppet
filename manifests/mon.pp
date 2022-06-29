@@ -24,7 +24,6 @@ class argo::mon (
   }
 
   include argo::mon::ncg
-  include argo::mon::caupdate
 
   if !$internal {
     include argo::mon::amspublisher
