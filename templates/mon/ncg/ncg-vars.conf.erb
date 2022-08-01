@@ -1,0 +1,39 @@
+# Set ARGO Monitoring Engine hostname
+# (default: hostname)
+NAGIOS_SERVER = <%= @nagioshost  %>
+
+# Set following option if you wish to receive
+# email alerts for Nagios internal checks
+# (default: root@localhost)
+NAGIOS_ADMIN = <%= @nagiosadmin  %>
+
+# ARGO WEB-API root URL
+# (default: https://api.argo.grnet.gr)
+WEBAPI_ROOT_URL = <%= @webapi_url  %>
+
+# ARGO WEB-API token must be provided
+# in order to fetch metric profiles
+# (default: )
+WEBAPI_TOKEN = <%= @webapi_token  %>
+
+# List of metric profiles used for configuring
+# ARGO Monitoring Engine
+# (default: )
+PROFILES = <%= @profiles  %>
+
+# ARGO POEM URL
+# (default: https://training.poem.devel.argo.grnet.gr)
+POEM_ROOT_URL = https://<%= @poem_url  %>
+
+# ARGO POEM token must be provided in order
+# to fetch metric definitions
+# (default: )
+POEM_TOKEN = <%= @poem_token  %>
+
+# GOCDB API root URL
+# (default: https://gocdb.egi.eu/gocdbpi)
+<% if @gocdb -%>
+GOCDB_ROOT_URL = <%= @gocdb_url %>
+<% else -%>
+# GOCDB_ROOT_URL = https://gocdb.egi.eu/gocdbpi
+<% end -%>
