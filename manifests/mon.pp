@@ -1,55 +1,33 @@
 class argo::mon (
-  $gridcert      = false,
-  $robotcert     = false,
-  $moncert       = false,
-  $voms_htpasswd = false,
-  $egi           = false,
-  $eudat	       = false,
-  $internal      = false,
+  $gridcert     = false,
+  $robotcert    = false,
+  $agent        = false,
+  $secrets_file = '',
 ) {
-  include yum::repo::argo
+  include yum::repo::umd4
 
-  package {'httpd':
-    ensure => latest,
-  }
-
-  package {'mod_ssl':
-    ensure => latest,
-  }
-
-  include argo::mon::nagios
-
-  package {'nagios-plugins-dummy':
-    ensure =>  present,
-  }
-
-  include argo::mon::ncg
+  include argo::mon::poemtools
   include argo::mon::caupdate
 
-  if !$internal {
-    include argo::mon::amspublisher
-    include argo::mon::poemtools
-  }
-
-  if ($moncert) {
-    include argo::mon::moncert
-  }
   if ($gridcert) {
     include argo::mon::hostcert
   }
-  if ($robotcert) {
-    include argo::mon::robotcert
+
+  if ($agent) {
+    if ($robotcert) {
+      include argo::mon::robotcert
+    }
+  } else {
+    include argo::mon::amspublisher
+    include argo::mon::scg
   }
-  if ($voms_htpasswd) {
-    include argo::mon::voms_htpasswd
-  }
-  if ($egi) {
-    include argo::mon::egi
-  }
-  if ($eudat) {
-    include argo::mon::eudat
-  }
-  if ($internal) {
-    include argo::mon::internal
+
+  if ($secrets_file) {
+    file { '/etc/sensu/secret_envs':
+      ensure => present,
+      owner  => 'sensu',
+      group  => 'sensu',
+      source => $secrets_file,
+    }
   }
 }
