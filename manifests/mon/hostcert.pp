@@ -6,16 +6,15 @@ class argo::mon::hostcert {
 
   File {
     ensure  => present,
-    owner   => 'nagios',
-    group   => 'nagios',
+    owner   => 'sensu',
+    group   => 'sensu',
     mode    => '0444',
-    require => [ Package['nagios'], Package['argo-ncg'] ],
   }
 
-  file { '/etc/nagios/globus/hostcert.pem':
+  file { '/etc/sensu/certs/hostcert.pem':
     source  => $::gridcert::hostcert,
   }
-  file { '/etc/nagios/globus/hostkey.pem':
+  file { '/etc/sensu/certs/hostkey.pem':
     mode    => '0400',
     source  => $::gridcert::hostkey,
   }

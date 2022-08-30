@@ -4,7 +4,7 @@ class argo::mon (
   $agent        = false,
   $secrets_file = '',
 ) {
-  include yum::repo::umd4
+  include yum::repo::argo
 
   include argo::mon::poemtools
   include argo::mon::caupdate
