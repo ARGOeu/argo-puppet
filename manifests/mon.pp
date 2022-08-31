@@ -17,6 +17,14 @@ class argo::mon (
     ensure => latest,
   }
 
+  package { 'python3-argo-ams-library':
+    ensure => latest,
+  }
+
+  package { 'python-argo-ams-library':
+    ensure => latest,
+  }
+
   include argo::mon::nagios
 
   package {'nagios-plugins-dummy':
