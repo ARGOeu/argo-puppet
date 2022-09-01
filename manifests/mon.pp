@@ -37,6 +37,10 @@ class argo::mon (
   if !$internal {
     include argo::mon::amspublisher
     include argo::mon::poemtools
+
+    package { 'argo-probe-poem-tools':
+      ensure => latest,
+    }
   }
 
   if ($moncert) {
