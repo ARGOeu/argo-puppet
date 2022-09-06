@@ -12,7 +12,7 @@ class argo::mon::internal (
     mode   => '0644'
   }
 
-  package { ['nagios-plugins-nrpe', 'nagios-plugins-http', 'nagios-plugins-tcp', 'argo-probe-webapi', 'nagios-plugins-check_ssl_cert', 'argo-probe-poem', 'argo-probe-nagios', 'argo-probe-ams', 'argo-probe-igtf', 'argo-probe-cert', 'nagios-plugins-disk', 'argo-probe-nagiosexchange', 'nagios-plugins-procs']:
+  package { ['nagios-plugins-ping', 'nagios-plugins-nrpe', 'nagios-plugins-http', 'nagios-plugins-tcp', 'argo-probe-webapi', 'nagios-plugins-check_ssl_cert', 'argo-probe-poem', 'argo-probe-nagios', 'argo-probe-ams', 'argo-probe-igtf', 'argo-probe-cert', 'nagios-plugins-disk', 'argo-probe-nagiosexchange', 'nagios-plugins-procs']:
   }
 
   file { '/etc/argo-ncg/ncg.argo-public-devel':
