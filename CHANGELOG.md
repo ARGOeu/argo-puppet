@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.0.2 - 6 Sep 2022
+
+* AO-678 Change name of packages in the puppet files
+
 ### 1.0.1 - 1 Sep 2022
 
 * AO-674 Fix puppet files for production mon boxes for the new version of publisher
