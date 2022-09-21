@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.0.3 - 6 Sep 2022
+
+* AO-702 Handle httpd and nagios services through Puppet
+
 ### 1.0.2 - 6 Sep 2022
 
 * AO-678 Change name of packages in the puppet files
