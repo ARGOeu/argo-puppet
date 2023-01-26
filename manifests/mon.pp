@@ -8,14 +8,6 @@ class argo::mon (
 ) {
   include yum::repo::argo
 
-  package {'httpd':
-    ensure => latest,
-  }
-
-  package {'mod_ssl':
-    ensure => latest,
-  }
-
   package { 'python3-argo-ams-library':
     ensure => latest,
   }

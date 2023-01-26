@@ -10,6 +10,14 @@ class argo::mon::nagios (
     mode   => '0644',
   }
 
+  package {'httpd':
+    ensure => latest,
+  }
+
+  package {'mod_ssl':
+    ensure => latest,
+  }
+
   package {'nagios':
     ensure  => present,
     require => Package['httpd'],
