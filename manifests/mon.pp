@@ -5,7 +5,6 @@ class argo::mon (
   $voms_htpasswd = false,
   $egi           = false,
   $eudat	       = false,
-  $internal      = false,
 ) {
   include yum::repo::argo
 
@@ -34,15 +33,6 @@ class argo::mon (
   include argo::mon::ncg
   include argo::mon::caupdate
 
-  if !$internal {
-    include argo::mon::amspublisher
-    include argo::mon::poemtools
-
-    package { 'argo-probe-poem-tools':
-      ensure => latest,
-    }
-  }
-
   if ($moncert) {
     include argo::mon::moncert
   }
@@ -60,8 +50,5 @@ class argo::mon (
   }
   if ($eudat) {
     include argo::mon::eudat
-  }
-  if ($internal) {
-    include argo::mon::internal
   }
 }
