@@ -8,14 +8,6 @@ class argo::mon (
 ) {
   include yum::repo::argo
 
-  package { 'python3-argo-ams-library':
-    ensure => latest,
-  }
-
-  package { 'python-argo-ams-library':
-    ensure => latest,
-  }
-
   include argo::mon::nagios
 
   package {'nagios-plugins-dummy':

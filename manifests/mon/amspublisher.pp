@@ -2,6 +2,14 @@ class argo::mon::amspublisher (
   $nagioshost              = '',
   $publisher_queues_topics = {},
 ) {
+  package { 'python3-argo-ams-library':
+    ensure => latest,
+  }
+
+  package { 'python-argo-ams-library':
+    ensure => latest,
+  }
+  
   package {'argo-nagios-ams-publisher':
     ensure => latest,
   }
