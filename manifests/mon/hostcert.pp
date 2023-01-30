@@ -5,10 +5,6 @@ class argo::mon::hostcert {
   include ::gridcert::crl
 
   if ($argo::mon::sensu) {
-    file { '/etc/sensu/certs':
-      ensure => directory,
-    }
-
     File {
       ensure  => present,
       owner   => 'sensu',
