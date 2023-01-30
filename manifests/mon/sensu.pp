@@ -24,7 +24,7 @@ class argo::mon::sensu (
   if ($backend) {
     include sensu::backend
 
-    include argo::mon::publisher
+    include argo::mon::amspublisher
     include argo::mon::scg
 
     $tenants.each | String $tenant | {
