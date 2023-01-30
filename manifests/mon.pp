@@ -5,16 +5,23 @@ class argo::mon (
   $voms_htpasswd = false,
   $egi           = false,
   $eudat	       = false,
+  $sensu         = false,
 ) {
   include yum::repo::argo
 
-  include argo::mon::nagios
+  if ($sensu) {
+    include argo::mon::sensu
+  } else {
+    include argo::mon::nagios
 
-  package {'nagios-plugins-dummy':
-    ensure =>  present,
+    package {'nagios-plugins-dummy':
+      ensure =>  present,
+    }
+
+    include argo::mon::ncg
+    include argo::mon::amspublisher
   }
 
-  include argo::mon::ncg
   include argo::mon::caupdate
 
   if ($moncert) {

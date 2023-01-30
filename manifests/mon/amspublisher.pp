@@ -9,19 +9,29 @@ class argo::mon::amspublisher (
   package { 'python-argo-ams-library':
     ensure => latest,
   }
-  
-  package {'argo-nagios-ams-publisher':
+
+  if ($argo::mon::sensu) {
+    $package_name = 'argo-sensu-ams-publisher'
+    $conf_file    = '/etc/ams-publisher/ams-publisher-sensu.conf'
+    $service_name = 'ams-publisher-sensu.service'
+  } else {
+    $package_name = 'argo-nagios-ams-publisher'
+    $conf_file    = '/etc/ams-publisher/ams-publisher-nagios.conf'
+    $service_name = 'ams-publisher-nagios.service'
+  }
+
+  package {$package_name:
     ensure => latest,
   }
 
-  file { '/etc/ams-publisher/ams-publisher-nagios.conf':
+  file { $conf_file:
     content => template('argo/mon/amspublisher/ams-publisher.conf.erb'),
-    notify  => Service['ams-publisher-nagios.service'],
+    notify  => Service[$service_name],
   }
 
-  service { 'ams-publisher-nagios.service':
+  service { $service_name:
     ensure  => 'running',
     enable  => true,
-    require => [ Package['argo-nagios-ams-publisher'], File['/etc/ams-publisher/ams-publisher-nagios.conf'] ],
+    require => [ Package[$package_name], File[$conf_file] ],
   }
 }
