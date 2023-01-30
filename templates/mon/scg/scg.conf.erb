@@ -1,0 +1,26 @@
+[GENERAL]
+sensu_url = <%= @sensu_url %>
+sensu_token = <%= @sensu_token %>
+webapi_url = <%= @webapi_url %>
+
+<% @tenant_sections.each do |key, value| -%>
+[<%= key %>]
+poem_url = <%= value['poem_url']%>
+poem_token = <%= value['poem_token']%>
+webapi_token = <%= value['webapi_token']%>
+<% if value['topology_filter'] -%>
+topology_filter = <%= value['topology_filter'] %>
+<% end -%>
+metricprofiles = <%= value['metricprofiles']%>
+<% if value['topology'] -%>
+topology = <%= value['topology'] %>
+<% end -%>
+<% if value['secrets'] -%>
+secrets = <%= value['secrets'] %>
+<% end -%>
+publish = <%= value['publish'] %>
+<% if value['publish'] == 'true' -%>
+publisher_queue = <%= value['publisher_queue'] %>
+<% end -%>
+
+<% end -%>
