@@ -19,6 +19,16 @@ class argo::mon::sensu (
   if ($agent) {
     include sensu::agent
     include argo::mon::poemtools
+
+    file { '/etc/sensu/certs':
+      ensure => directory,
+    }
+
+    file { '/var/log/sensu':
+      ensure => directory,
+      owner  => 'sensu',
+      group  => 'sensu',
+    }
   }
 
   if ($backend) {

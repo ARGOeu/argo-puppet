@@ -3,10 +3,6 @@ class argo::mon::robotcert (
   $cert = 'puppet:///private/robotcert/robotcert.pem',
 ) {
   if ($argo::mon::sensu) {
-    file { '/etc/sensu/certs':
-      ensure => directory,
-    }
-
     File {
       ensure  => present,
       owner   => 'sensu',
