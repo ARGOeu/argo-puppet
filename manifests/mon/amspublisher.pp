@@ -1,5 +1,6 @@
 class argo::mon::amspublisher (
   $nagioshost              = '',
+  $runuser                 = 'nagios',
   $publisher_queues_topics = {},
 ) {
   package { 'python3-argo-ams-library':
