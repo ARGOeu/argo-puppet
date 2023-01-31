@@ -5,43 +5,24 @@ class argo::mon (
   $voms_htpasswd = false,
   $egi           = false,
   $eudat	       = false,
-  $internal      = false,
+  $sensu         = false,
 ) {
   include yum::repo::argo
 
-  package {'httpd':
-    ensure => latest,
-  }
+  if ($sensu) {
+    include argo::mon::sensu
+  } else {
+    include argo::mon::nagios
 
-  package {'mod_ssl':
-    ensure => latest,
-  }
-
-  package { 'python3-argo-ams-library':
-    ensure => latest,
-  }
-
-  package { 'python-argo-ams-library':
-    ensure => latest,
-  }
-
-  include argo::mon::nagios
-
-  package {'nagios-plugins-dummy':
-    ensure =>  present,
-  }
-
-  include argo::mon::ncg
-  include argo::mon::caupdate
-
-  if !$internal {
-    include argo::mon::amspublisher
-    include argo::mon::poemtools
-
-    package { 'argo-probe-poem-tools':
-      ensure => latest,
+    package {'nagios-plugins-dummy':
+      ensure =>  present,
     }
+
+    include argo::mon::ncg
+    include argo::mon::amspublisher
   }
+
+  include argo::mon::caupdate
 
   if ($moncert) {
     include argo::mon::moncert
@@ -60,8 +41,5 @@ class argo::mon (
   }
   if ($eudat) {
     include argo::mon::eudat
-  }
-  if ($internal) {
-    include argo::mon::internal
   }
 }

@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.1.0 - 30 Jan 2023
+
+* AO-756 Puppet configuration for Sensu
+
 ### 1.0.3 - 6 Sep 2022
 
 * AO-702 Handle httpd and nagios services through Puppet
