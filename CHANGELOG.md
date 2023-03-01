@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.1.1 - 1 Mar 2023
+
+* AO-764 Make AMS publisher optional on Sensu backend
+
 ### 1.1.0 - 30 Jan 2023
 
 * AO-756 Puppet configuration for Sensu
