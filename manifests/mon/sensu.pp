@@ -3,6 +3,7 @@ class argo::mon::sensu (
   $backend      = false,
   $secrets_file = '',
   $tenants      = [],
+  $amspublisher = true,
 ) {
   include ::yum::repo::umd4
   include ::yum::repo::srce::intern
@@ -34,7 +35,9 @@ class argo::mon::sensu (
   if ($backend) {
     include sensu::backend
 
-    include argo::mon::amspublisher
+    if ($amspublisher) {
+      include argo::mon::amspublisher
+    }
     include argo::mon::scg
 
     $tenants.each | String $tenant | {
