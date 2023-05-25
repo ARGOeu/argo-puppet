@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.1.2 - 25 May 2023
+
+* AO-798 Update scg.conf.erb template
+
 ### 1.1.1 - 1 Mar 2023
 
 * AO-764 Make AMS publisher optional on Sensu backend
