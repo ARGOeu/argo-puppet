@@ -11,6 +11,12 @@ webapi_token = <%= value['webapi_token']%>
 <% if value['topology_filter'] -%>
 topology_filter = <%= value['topology_filter'] %>
 <% end -%>
+<% if value['topology_groups_filter'] -%>
+topology_groups_filter = <%= value['topology_groups_filter'] %>
+<% end -%>
+<% if value['topology_endpoints_filter'] -%>
+topology_endpoints_filter = <%= value['topology_endpoints_filter'] %>
+<% end -%>
 metricprofiles = <%= value['metricprofiles']%>
 <% if value['topology'] -%>
 topology = <%= value['topology'] %>
