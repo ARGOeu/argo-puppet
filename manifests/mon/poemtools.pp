@@ -13,16 +13,21 @@ class argo::mon::poemtools (
   }
 
   if ($argo::mon::sensu) {
-    $cron_command = '/bin/argo-poem-packages.py'
+    cron::job { 'poemPackages':
+      command     => '/bin/argo-poem-packages.py',
+      user        => 'root',
+      hour        => '*/2',
+      minute      => '0',
+      environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
+    }
   } else {
-    $cron_command = '/bin/argo-poem-packages.py --include-internal'
+    cron::job { 'poemPackages':
+      command     => '/bin/argo-poem-packages.py --include-internal',
+      user        => 'root',
+      hour        => '*/2',
+      minute      => '0',
+      environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
+    }
   }
 
-  cron::job { 'poemPackages':
-    command     => $cron_command,
-    user        => 'root',
-    hour        => '*/2',
-    minute      => '0',
-    environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
-  }
 }
