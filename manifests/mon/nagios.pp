@@ -10,6 +10,8 @@ class argo::mon::nagios (
     mode   => '0644',
   }
 
+  include argo::mon::poemtools
+
   package {'httpd':
     ensure => latest,
   }
