@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.1.3 - 3 Aug 2023
+
+* AO-826 Define different cron command for argo-poem-tools for Nagios and Sensu boxes
+
 ### 1.1.2 - 25 May 2023
 
 * AO-798 Update scg.conf.erb template
