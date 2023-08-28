@@ -12,8 +12,14 @@ class argo::mon::poemtools (
     require => Package['argo-poem-tools'],
   }
 
+  if ($argo::mon::sensu) {
+    $cron_command = '/bin/argo-poem-packages.py'
+  } else {
+    $cron_command = '/bin/argo-poem-packages.py --include-internal'
+  }
+
   cron::job { 'poemPackages':
-    command     => '/bin/argo-poem-packages.py',
+    command     => $cron_command,
     user        => 'root',
     hour        => '*/2',
     minute      => '0',
