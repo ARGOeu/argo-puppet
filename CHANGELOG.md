@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.1.4 - 5 Oct 2023
+
+* AO-842 Set directory owner to sensu for /etc/sensu/certs
+
 ### 1.1.3 - 3 Aug 2023
 
 * AO-826 Define different cron command for argo-poem-tools for Nagios and Sensu boxes
