@@ -23,6 +23,8 @@ class argo::mon::sensu (
 
     file { '/etc/sensu/certs':
       ensure => directory,
+      owner  => 'sensu',
+      group  => 'sensu',
     }
 
     file { '/var/log/sensu':
