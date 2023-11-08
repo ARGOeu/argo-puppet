@@ -1,0 +1,13 @@
+[GENERAL]
+fifo = /var/nagios/rw/nagios.cmd
+voname = <%= @voname  %>
+
+[SENSU]
+url = <%= @sensu_url %>
+token = <%= @sensu_token %>
+namespace = <%= @namespace %>
+
+[WEB-API]
+url = <%= @webapi_url %>
+token = <%= @webapi_token %>
+metricprofiles = <%= @metricprofiles  %>
