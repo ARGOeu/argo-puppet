@@ -1,9 +1,10 @@
 class argo::mon::sensu (
-  $agent        = false,
-  $backend      = false,
-  $secrets_file = '',
-  $tenants      = [],
-  $amspublisher = true,
+  $agent           = false,
+  $backend         = false,
+  $secrets_file    = '',
+  $tenants         = [],
+  $amspublisher    = true,
+  $include_passive = false,
 ) {
   include ::yum::repo::umd4
   include ::yum::repo::srce::intern
@@ -31,6 +32,10 @@ class argo::mon::sensu (
       ensure => directory,
       owner  => 'sensu',
       group  => 'sensu',
+    }
+
+    if ($include_passive) {
+      include argo::mon::sensutools
     }
   }
 
