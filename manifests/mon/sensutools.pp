@@ -20,6 +20,7 @@ class argo::mon::sensutools (
   file { '/etc/argo-sensu-tools/argo-sensu-tools.conf':
     content => template('argo/mon/sensutools/argo-sensu-tools.conf.erb'),
     require => Package['argo-sensu-tools'],
+    notify  => Service['passive2sensu'],
   }
 
   service { 'passive2sensu':
