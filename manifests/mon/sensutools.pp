@@ -7,7 +7,7 @@ class argo::mon::sensutools (
   $webapi_token   = '',
   $metricprofiles = '',
 ) {
-  file { '/var/nagios/rw':
+  file { ['/var/nagios', '/var/nagios/rw']:
     ensure => directory,
     owner  => 'sensu',
     group  => 'sensu',
