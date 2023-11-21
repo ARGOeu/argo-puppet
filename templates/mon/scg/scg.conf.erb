@@ -28,5 +28,8 @@ publish = <%= value['publish'] %>
 <% if value['publish'] == 'true' -%>
 publisher_queue = <%= value['publisher_queue'] %>
 <% end -%>
+<% if value['subscriptions_use_ids'] -%>
+subscriptions_use_ids = <%= value['subscriptions_use_ids'] %>
+<% end -%>
 
 <% end -%>
