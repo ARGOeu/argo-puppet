@@ -2,6 +2,13 @@
 
 Release notes for argo-puppet module
 
+### 1.2.0 - 22 Nov 2023
+
+* AO-855 Update scg.conf.erb template
+* AO-853 Ensure existence of /var/nagios directory when setting up argo-sensu-tools
+* AO-851 Add directive to reload service when argo-sensu-tools configuration has been changed
+* AO-850 Handle argo-sensu-tools with ARGO Puppet module
+
 ### 1.1.4 - 5 Oct 2023
 
 * AO-842 Set directory owner to sensu for /etc/sensu/certs

@@ -121,7 +121,7 @@ argo::mon::sensu::tenants: ['default', 'TENANT1', 'TENANT2']
 
 Keep in mind that in this case you also need to do the necessary setup for [Sensu puppet module](https://forge.puppet.com/modules/sensu/sensu/readme).
 
-### SCG
+### argo-scg
 
 When configuring Sensu backend, the parameters for configuration of argo-scg should be provided as well:
 
@@ -202,6 +202,26 @@ Example:
 argo::mon::poemtools::poem_url  : default.poem.devel.argo.grnet.gr
 argo::mon::poemtools::poem_token: poem_token
 argo::mon::poemtools::profiles  : PROFILE1, PROFILE2
+```
+
+### argo-sensu-tools
+
+If you intend to use passive metrics on a Sensu agent, you should configure [argo-sensu-tools](https://github.com/ARGOeu/argo-sensu-tools). First, you need to include the flag to include passive metrics.
+
+```yaml
+argo::mon::sensu::include_passive: true
+```
+
+Setting `include_passive` parameter to `true` triggers installation and configuration of `argo-sensu-tools`. The configuration parameters are explained [here](https://github.com/ARGOeu/argo-sensu-tools#configuration) You also need to provide the necessary parameters for the configuration:
+
+```yaml
+argo::mon::sensutools::voname        : tenant
+argo::mon::sensutools::sensu_url     : https://sensu.argo.grnet.gr:8080/
+argo::mon::sensutools::sensu_token   : <sensu-token>
+argo::mon::sensutools::namespace     : TENANT
+argo::mon::sensutools::webapi_url    : https://api.argo.grnet.gr/api/v2/metric_profiles
+argo::mon::sensutools::webapi_token  : <webapi-token>
+argo::mon::sensutools::metricprofiles: ARGO-MON, ARGO-MON-CRITICAL
 ```
 
 ### Setting up certificates
