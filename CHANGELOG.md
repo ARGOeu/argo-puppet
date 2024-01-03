@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.3.0 - 3 Jan 2024
+
+* AO-868 Add "subscription" option to configuration file template
+
 ### 1.2.0 - 22 Nov 2023
 
 * AO-855 Update scg.conf.erb template
