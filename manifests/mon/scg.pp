@@ -23,7 +23,7 @@ class argo::mon::scg (
     source  => $topology,
   }
 
-  if ($agents_config) {
+  if ($agents_config != '') {
     file { '/etc/argo-scg/agents.d':
       ensure  => directory,
       recurse => remote,
