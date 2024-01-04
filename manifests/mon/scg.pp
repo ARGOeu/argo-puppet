@@ -5,6 +5,7 @@ class argo::mon::scg (
   $sensu_token     = '',
   $webapi_url      = '',
   $tenant_sections = {},
+  $agents_config   = '',
 ) {
 
   package {'argo-scg':
@@ -20,6 +21,14 @@ class argo::mon::scg (
     ensure  => directory,
     recurse => remote,
     source  => $topology,
+  }
+
+  if ($agents_config) {
+    file { '/etc/argo-scg/agents.d':
+      ensure  => directory,
+      recurse => remote,
+      source  => $agents_config,
+    }
   }
 
   cron::job { 'scgReload':
