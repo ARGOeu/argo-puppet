@@ -17,9 +17,7 @@ class argo::mon::condor (
     require => Package['condor'],
   }
 
-  file { '/var/lib/gridprobes/biomed':
+  file { '/var/lib/gridprobes':
     ensure => directory,
-    owner  => 'sensu',
-    group  => 'sensu',
   }
 }
