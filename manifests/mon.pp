@@ -6,6 +6,7 @@ class argo::mon (
   $egi           = false,
   $eudat	       = false,
   $sensu         = false,
+  $condor        = false,
 ) {
   include yum::repo::argo
 
@@ -41,5 +42,8 @@ class argo::mon (
   }
   if ($eudat) {
     include argo::mon::eudat
+  }
+  if ($condor) {
+    include argo::mon::condor
   }
 }
