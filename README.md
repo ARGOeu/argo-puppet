@@ -101,7 +101,7 @@ Example:
 argo::mon::sensu: true
 ```
 
-In order to configuration to work, you must set either `backend` or `agent` parameter to `true` (depending on whether you are setting up the Sensu backend instance or one of the agents). For the instances being set up as Sensu agents, [argo-poem-tools](https://github.com/ARGOeu/argo-poem-tools) tool is going to be configured. For the instances being set up as Sensu backend, there will be [AMS publisher](https://github.com/ARGOeu/ams-publisher) and [argo-scg](https://github.com/ARGOeu/argo-scg) configured. Therefore the necessary parameters should be provided as well.
+In order to configuration to work, you must set either `backend` or `agent` parameter to `true` (depending on whether you are setting up the Sensu backend instance or one of the agents). For the instances being set up as Sensu agents, [argo-poem-tools](https://github.com/ARGOeu/argo-poem-tools) tool is going to be configured. For the instances being set up as Sensu backend, there will be [AMS publisher](https://github.com/ARGOeu/ams-publisher) and [argo-scg](https://github.com/ARGOeu/argo-scg) configured. Therefore, the necessary parameters should be provided as well.
 
 Example:
 
@@ -129,6 +129,7 @@ When configuring Sensu backend, the parameters for configuration of argo-scg sho
 * `sensu_url` - URL of the Sensu API,
 * `sensu_token` - token to be used for Sensu API,
 * `webapi_url` - URL of the ARGO Web-API,
+* `agents_config` - the directory containing custom agents' configuration,
 * `tenant_sections` - object containing per-tenant information required for `argo-scg` configuration described [here](https://github.com/ARGOeu/argo-scg/tree/devel#configuration).
 
 Example:
@@ -138,6 +139,7 @@ argo::mon::scg::topology       : 'puppet:///private/scg/topology'
 argo::mon::scg::sensu_url      : 'https://sensu-backend.example.com:8080'
 argo::mon::scg::sensu_token    : 'sensu-token'
 argo::mon::scg::webapi_url     : 'https://api.devel.argo.grnet.gr'
+argo::mon::scg::agents_config  : 'puppet:///private/scg/agents_config'
 argo::mon::scg::tenant_sections:
   default:
     poem_url       : https://default.poem.devel.argo.grnet.gr
@@ -239,4 +241,14 @@ gridcert::hostkey : 'puppet:///private/gridcert/hostkey.pem'
 
 argo::mon::robotcert::key : 'puppet:///private/robotcert/robotkey.pem'
 argo::mon::robotcert::cert: 'puppet:///private/robotcert/robotcert.pem'
+```
+
+### Custom setup for certain probes
+
+#### HTCondorCE probes
+
+HTCondorCE probes need to have `condor` package installed and proper environmental variables configured. This is done automatically by the module, you only need to set:
+
+```yaml
+argo::mon::condor: true
 ```
