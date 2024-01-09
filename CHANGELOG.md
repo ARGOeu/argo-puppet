@@ -2,6 +2,12 @@
 
 Release notes for argo-puppet module
 
+### 1.4.0 - 9 Jan 2024
+
+* AO-877 Update README file to reflect the changes in the module
+* AO-871 Create manifest for condor
+* AO-870 Add 'agents_configuration' option in scg.conf.erb template
+
 ### 1.3.0 - 3 Jan 2024
 
 * AO-868 Add "subscription" option to configuration file template
