@@ -19,9 +19,18 @@ class argo::mon::arc (
   }
 
   file { '/var/spool/arc/nagios':
-    ensure => directory,
-    owner  => 'sensu',
-    group  => 'sensu',
-    mode   => '0666',
+    ensure  => directory,
+    owner   => 'sensu',
+    group   => 'sensu',
+    mode    => '0666',
+    require => Package['nordugrid-arc-nagios-plugins-egi'],
+  }
+
+  file { '/var/spool/argo/probes/argo-probe-igtf':
+    ensure  => directory,
+    owner   => 'sensu',
+    group   => 'sensu',
+    mode    => '0660',
+    require => Package['argo-probe-igtf'],
   }
 }
