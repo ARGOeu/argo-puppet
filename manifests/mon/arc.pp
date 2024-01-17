@@ -33,4 +33,11 @@ class argo::mon::arc (
     mode    => '0660',
     require => Package['argo-probe-igtf'],
   }
+
+  file { '/var/lib/gridprobes':
+    ensure  => directory,
+    owner   => 'sensu',
+    group   => 'sensu',
+    require => Package['nordugrid-arc-nagios-plugins-egi'],
+  }
 }
