@@ -10,7 +10,7 @@ class argo::mon::arc (
     mode   => '0644',
   }
 
-  package { ['nordugrid-arc-nagios-plugins', 'argo-probe-igtf']:
+  package { ['nordugrid-arc-nagios-plugins', 'argo-probe-igtf', 'argo-probe-sensu']:
   }
 
   file { '/etc/arc/nagios/90-local.ini':
