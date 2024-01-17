@@ -19,6 +19,8 @@ class argo::mon::condor (
 
   file { '/var/lib/gridprobes':
     ensure => directory,
+    owner  => sensu,
+    group  => sensu,
     mode   => '0666',
   }
 }
