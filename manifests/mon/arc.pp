@@ -10,12 +10,12 @@ class argo::mon::arc (
     mode   => '0644',
   }
 
-  package { ['nordugrid-arc-nagios-plugins-egi', 'argo-probe-igtf']:
+  package { ['nordugrid-arc-nagios-plugins', 'argo-probe-igtf']:
   }
 
   file { '/etc/arc/nagios/90-local.ini':
     source  => $local_ini,
-    require => Package['nordugrid-arc-nagios-plugins-egi'],
+    require => Package['nordugrid-arc-nagios-plugins'],
   }
 
   file { '/var/spool/arc/nagios':
@@ -23,7 +23,7 @@ class argo::mon::arc (
     owner   => 'sensu',
     group   => 'sensu',
     mode    => '0666',
-    require => Package['nordugrid-arc-nagios-plugins-egi'],
+    require => Package['nordugrid-arc-nagios-plugins'],
   }
 
   file { '/var/spool/argo/probes/argo-probe-igtf':
