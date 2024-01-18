@@ -247,8 +247,28 @@ argo::mon::robotcert::cert: 'puppet:///private/robotcert/robotcert.pem'
 
 #### HTCondorCE probes
 
-HTCondorCE probes need to have `condor` package installed and proper environmental variables configured. This is done automatically by the module, you only need to set:
+HTCondorCE probes need to have `condor` package installed and proper environmental variables configured. The environmental variables are set in file `files/mon/condor/condor_config.local`. The installation of `condor` package and placement of the default configuration file is done simply by setting:
 
 ```yaml
 argo::mon::condor: true
+```
+
+It is possible to override the configuration file, and it can be done by setting the path of the new source file in the yaml file:
+
+```yaml
+argo::mon::condor::local_config: puppet:///path/to/local_config/file
+```
+
+#### ARC-CE probes
+
+For ARC-CE probes to work properly, besides the package providing the probes (`nordugrid-arc-nagios-plugins`), also packages `argo-probe-igtf` and `argo-probe-sensu` need to be additionally installed. There is also a configuration file that needs to be placed in proper directory (default file is `files/mon/egi/90-local.ini`). If The default file is sufficient, the `.yaml` file should simply contain:
+
+```yaml
+argo::mon::arc: true
+```
+
+and everything will be configured automatically. The configuration file can be overridden, by additionally adding:
+
+```yaml
+argo::mon::arc:local_ini: puppet:///path/to/local_ini/file
 ```
