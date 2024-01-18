@@ -20,8 +20,6 @@ class argo::mon::arc (
 
   file { '/var/spool/arc/nagios':
     ensure  => directory,
-    owner   => 'sensu',
-    group   => 'sensu',
     mode    => '0666',
     require => Package['nordugrid-arc-nagios-plugins'],
   }
