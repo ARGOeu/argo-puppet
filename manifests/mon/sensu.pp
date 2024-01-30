@@ -57,6 +57,18 @@ class argo::mon::sensu (
         version => '1.5.0',
         rename  => 'sensu-slack-handler',
       }
+
+      sensu_bonsai_asset { "sensu/check-cpu-usage in ${tenant}":
+        ensure  => present,
+        version => '0.2.2',
+        rename  => 'check-cpu-usage',
+      }
+
+      sensu_bonsai_asset { "sensu/check-memory-usage in ${tenant}":
+        ensure  => present,
+        version => '0.2.2',
+        rename  => 'check-memory-usage',
+      }
     }
   }
 }
