@@ -2,6 +2,12 @@
 
 Release notes for argo-puppet module
 
+### 1.5.0 - 1 Feb 2024
+
+* AO-898 Install assets for CPU and memory monitoring
+* AO-894 Include skipped_metrics entry in scg.conf configuration
+* AO-882 Create arc manifest
+
 ### 1.4.0 - 9 Jan 2024
 
 * AO-877 Update README file to reflect the changes in the module
