@@ -4,9 +4,10 @@ class argo::mon (
   $moncert       = false,
   $voms_htpasswd = false,
   $egi           = false,
-  $eudat	       = false,
+  $eudat         = false,
   $sensu         = false,
   $condor        = false,
+  $arc           = false,
 ) {
   include yum::repo::argo
 
@@ -45,5 +46,8 @@ class argo::mon (
   }
   if ($condor) {
     include argo::mon::condor
+  }
+  if ($arc) {
+    include argo::mon::arc
   }
 }
