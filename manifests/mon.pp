@@ -10,6 +10,7 @@ class argo::mon (
   $arc           = false,
 ) {
   include yum::repo::argo
+  include ::yum::repo::igtf
 
   if ($sensu) {
     include argo::mon::sensu

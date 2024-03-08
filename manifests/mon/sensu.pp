@@ -6,7 +6,6 @@ class argo::mon::sensu (
   $amspublisher    = true,
   $include_passive = false,
 ) {
-  include ::yum::repo::umd4
   include ::yum::repo::srce::intern
 
   if ($secrets_file) {
