@@ -1,6 +1,4 @@
 class argo::mon::hostcert {
-
-  include ::yum::repo::umd4
   include ::gridcert
   include ::gridcert::crl
 
