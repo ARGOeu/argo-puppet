@@ -21,6 +21,12 @@ class argo::mon::sensu (
     include sensu::agent
     include argo::mon::poemtools
 
+    if (Integer($facts['os']['release']['major']) > 7) {
+      package { 'python3-dnf-plugin-versionlock':
+        ensure => present,
+      }
+    }
+
     file { '/etc/sensu/certs':
       ensure => directory,
       owner  => 'sensu',
