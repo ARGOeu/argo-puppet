@@ -2,6 +2,7 @@ class argo::mon::egi (
   $local_ini='puppet:///modules/argo/mon/egi/90-local.ini',
 ) {
   include yum::repo::nordugrid
+  include yum::repo::umd4
 
   File {
     ensure => present,
