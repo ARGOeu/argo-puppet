@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.6.0 - 13 Mar 2024
+
+* AO-918 Modify module so that it does not include unnecessary repos
+
 ### 1.5.0 - 1 Feb 2024
 
 * AO-898 Install assets for CPU and memory monitoring

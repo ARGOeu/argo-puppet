@@ -272,3 +272,13 @@ and everything will be configured automatically. The configuration file can be o
 ```yaml
 argo::mon::arc:local_ini: puppet:///path/to/local_ini/file
 ```
+
+#### EGI
+
+In case you wish to have both condor and ARC-CE probes set up, you can simply use:
+
+```yaml
+argo::mon::egi: true
+```
+
+That flag invokes both previously described set ups.
