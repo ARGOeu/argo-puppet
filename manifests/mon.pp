@@ -11,6 +11,12 @@ class argo::mon (
 ) {
   include yum::repo::argo
 
+  if ($egi) {
+    include ::yum::repo::umd4
+  } else {
+    include ::yum::repo::igtf
+  }
+
   if ($sensu) {
     include argo::mon::sensu
   } else {
@@ -39,7 +45,8 @@ class argo::mon (
     include argo::mon::voms_htpasswd
   }
   if ($egi) {
-    include argo::mon::egi
+    include argo::mon::condor
+    include argo::mon::arc
   }
   if ($eudat) {
     include argo::mon::eudat

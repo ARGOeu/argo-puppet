@@ -6,7 +6,6 @@ class argo::mon::sensu (
   $amspublisher    = true,
   $include_passive = false,
 ) {
-  include ::yum::repo::umd4
   include ::yum::repo::srce::intern
 
   if ($secrets_file) {
@@ -21,6 +20,12 @@ class argo::mon::sensu (
   if ($agent) {
     include sensu::agent
     include argo::mon::poemtools
+
+    if (Integer($facts['os']['release']['major']) > 7) {
+      package { 'python3-dnf-plugin-versionlock':
+        ensure => present,
+      }
+    }
 
     file { '/etc/sensu/certs':
       ensure => directory,

@@ -18,17 +18,19 @@ class argo::mon::arc (
     require => Package['nordugrid-arc-nagios-plugins'],
   }
 
-  file { '/var/spool/arc/nagios':
-    ensure  => directory,
-    mode    => '0666',
-    require => Package['nordugrid-arc-nagios-plugins'],
-  }
+  if ($argo::mon::sensu) {
+    file { '/var/spool/arc/nagios':
+      ensure  => directory,
+      mode    => '0666',
+      require => Package['nordugrid-arc-nagios-plugins'],
+    }
 
-  file { '/var/spool/argo/probes/argo-probe-igtf':
-    ensure  => directory,
-    owner   => 'sensu',
-    group   => 'sensu',
-    mode    => '0660',
-    require => Package['argo-probe-igtf'],
+    file { '/var/spool/argo/probes/argo-probe-igtf':
+      ensure  => directory,
+      owner   => 'sensu',
+      group   => 'sensu',
+      mode    => '0660',
+      require => Package['argo-probe-igtf'],
+    }
   }
 }
