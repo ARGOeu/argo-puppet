@@ -45,7 +45,8 @@ class argo::mon (
     include argo::mon::voms_htpasswd
   }
   if ($egi) {
-    include argo::mon::egi
+    include argo::mon::condor
+    include argo::mon::arc
   }
   if ($eudat) {
     include argo::mon::eudat
