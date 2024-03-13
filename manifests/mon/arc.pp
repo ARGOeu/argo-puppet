@@ -24,11 +24,13 @@ class argo::mon::arc (
     require => Package['nordugrid-arc-nagios-plugins'],
   }
 
-  file { '/var/spool/argo/probes/argo-probe-igtf':
-    ensure  => directory,
-    owner   => 'sensu',
-    group   => 'sensu',
-    mode    => '0660',
-    require => Package['argo-probe-igtf'],
+  if ($argo::mon::sensu) {
+    file { '/var/spool/argo/probes/argo-probe-igtf':
+      ensure  => directory,
+      owner   => 'sensu',
+      group   => 'sensu',
+      mode    => '0660',
+      require => Package['argo-probe-igtf'],
+    }
   }
 }
