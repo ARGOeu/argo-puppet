@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.7.0 - 19 Mar 2024
+
+* AO-935 Install python-argo-ams-library only on el7
+
 ### 1.6.0 - 13 Mar 2024
 
 * AO-918 Modify module so that it does not include unnecessary repos
