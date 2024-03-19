@@ -6,9 +6,11 @@ class argo::mon::amspublisher (
   package { 'python3-argo-ams-library':
     ensure => latest,
   }
-
-  package { 'python-argo-ams-library':
-    ensure => latest,
+  
+  if (Integer($facts['os']['release']['major']) < 8) {
+    package { 'python-argo-ams-library':
+      ensure => latest,
+    }
   }
 
   if ($argo::mon::sensu) {
