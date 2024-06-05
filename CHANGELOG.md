@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.7.1 - 5 Jun 2024
+
+* ARGO-4662 Update scg.conf.erb template
+
 ### 1.7.0 - 19 Mar 2024
 
 * AO-935 Install python-argo-ams-library only on el7
