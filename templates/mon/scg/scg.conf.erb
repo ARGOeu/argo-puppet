@@ -37,5 +37,8 @@ agents_configuration = <%= value['agents_configuration'] %>
 <% if value['skipped_metrics'] -%>
 skipped_metrics = <%= value['skipped_metrics'] %>
 <% end -%>
+<% if value['namespace'] -%>
+namespace = <%= value['namespace'] %>
+<% end -%>
 
 <% end -%>
