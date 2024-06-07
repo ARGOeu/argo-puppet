@@ -1,7 +1,7 @@
 <% @tenants_data.each do |key, value| -%>
 [<%=key %>]
-Host = <%= value['Host']%>
-Token = <%= value['Token']%>
-MetricProfiles = <%= value['MetricProfiles']%>
+Host = <%= value['poem_host']%>
+Token = <%= value['poem_token']%>
+MetricProfiles = <%= value['profiles']%>
 
 <% end -%>
