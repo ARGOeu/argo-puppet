@@ -1,7 +1,5 @@
 class argo::mon::poemtools (
-  $poem_url   = '',
-  $poem_token = '',
-  $profiles   = '',
+  $tenants_data = {},
 ) {
   package {'argo-poem-tools':
     ensure => latest,
