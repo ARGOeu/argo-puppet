@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.0 - 17 Jun 2024
+
+* AO-972 Change argo-poem-tools.conf.erb template to work with the changes in the tool
+
 ### 1.7.1 - 5 Jun 2024
 
 * ARGO-4662 Update scg.conf.erb template

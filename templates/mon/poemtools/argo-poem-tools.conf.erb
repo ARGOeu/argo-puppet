@@ -1,6 +1,7 @@
-[GENERAL]
-Host = <%= @poem_url  %>
-Token = <%= @poem_token  %>
+<% @tenants_data.each do |key, value| -%>
+[<%=key %>]
+Host = <%= value['poem_host']%>
+Token = <%= value['poem_token']%>
+MetricProfiles = <%= value['profiles']%>
 
-[PROFILES]
-MetricProfiles = <%= @profiles  %>
+<% end -%>
