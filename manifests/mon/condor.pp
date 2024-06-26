@@ -8,6 +8,13 @@ class argo::mon::condor (
     group  => root,
     mode   => '0644',
   }
+
+  if (Integer($facts['os']['release']['major']) > 7) {
+    file { '/etc/yum.repos.d/htcondor.repo': 
+      source => 'puppet:///modules/argo/mon/condor/htcondor.repo',
+      mode   => '0644',
+    }
+  }
   
   package { 'condor': 
   }
