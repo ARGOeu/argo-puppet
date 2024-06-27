@@ -2,6 +2,11 @@
 
 Release notes for argo-puppet module
 
+### 1.8.1 - 27 Jun 2024
+
+* AO-985 Include repo for HTCondor packages on Rocky 9
+* AO-983 Add nordugrid-arc-nagios-plugins-egi to Puppet configuration files regarding arc
+
 ### 1.8.0 - 17 Jun 2024
 
 * AO-972 Change argo-poem-tools.conf.erb template to work with the changes in the tool
