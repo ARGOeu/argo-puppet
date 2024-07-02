@@ -220,7 +220,8 @@ Setting `include_passive` parameter to `true` triggers installation and configur
 argo::mon::sensutools::voname        : tenant
 argo::mon::sensutools::sensu_url     : https://sensu.argo.grnet.gr:8080/
 argo::mon::sensutools::sensu_token   : <sensu-token>
-argo::mon::sensutools::namespace     : TENANT
+argo::mon::sensutools::namespace     : tenant_namespace
+argo::mon::sensutools::tenant        : TENANT
 argo::mon::sensutools::webapi_url    : https://api.argo.grnet.gr/api/v2/metric_profiles
 argo::mon::sensutools::webapi_token  : <webapi-token>
 argo::mon::sensutools::metricprofiles: ARGO-MON, ARGO-MON-CRITICAL
