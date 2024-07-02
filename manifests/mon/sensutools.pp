@@ -3,6 +3,7 @@ class argo::mon::sensutools (
   $sensu_url      = '',
   $sensu_token    = '',
   $namespace      = '',
+  $tenant         = '',
   $webapi_url     = '',
   $webapi_token   = '',
   $metricprofiles = '',
