@@ -220,7 +220,8 @@ Setting `include_passive` parameter to `true` triggers installation and configur
 argo::mon::sensutools::voname        : tenant
 argo::mon::sensutools::sensu_url     : https://sensu.argo.grnet.gr:8080/
 argo::mon::sensutools::sensu_token   : <sensu-token>
-argo::mon::sensutools::namespace     : TENANT
+argo::mon::sensutools::namespace     : tenant_namespace
+argo::mon::sensutools::tenant        : TENANT
 argo::mon::sensutools::webapi_url    : https://api.argo.grnet.gr/api/v2/metric_profiles
 argo::mon::sensutools::webapi_token  : <webapi-token>
 argo::mon::sensutools::metricprofiles: ARGO-MON, ARGO-MON-CRITICAL
@@ -261,7 +262,7 @@ argo::mon::condor::local_config: puppet:///path/to/local_config/file
 
 #### ARC-CE probes
 
-For ARC-CE probes to work properly, besides the package providing the probes (`nordugrid-arc-nagios-plugins`), also packages `argo-probe-igtf` and `argo-probe-sensu` need to be additionally installed. There is also a configuration file that needs to be placed in proper directory (default file is `files/mon/egi/90-local.ini`). If The default file is sufficient, the `.yaml` file should simply contain:
+For ARC-CE probes to work properly, besides the package providing the probes (`nordugrid-arc-nagios-plugins`), also packages `nordugrid-arc-nagios-plugins-egi`, `argo-probe-igtf` and `argo-probe-sensu` need to be additionally installed. There is also a configuration file that needs to be placed in proper directory (default file is `files/mon/egi/90-local.ini`). If The default file is sufficient, the `.yaml` file should simply contain:
 
 ```yaml
 argo::mon::arc: true
