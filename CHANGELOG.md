@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.2 - 4 Jul 2024
+
+* AO-986 Include tenant entry in argo-sensu-tools.conf.erb template
+
 ### 1.8.1 - 27 Jun 2024
 
 * AO-985 Include repo for HTCondor packages on Rocky 9
