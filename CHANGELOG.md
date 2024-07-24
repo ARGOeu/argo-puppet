@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.3 - 24 Jul 2024
+
+* AO-991 Add the staging env certificate to the bundle
+
 ### 1.8.2 - 4 Jul 2024
 
 * AO-986 Include tenant entry in argo-sensu-tools.conf.erb template
