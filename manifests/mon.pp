@@ -10,6 +10,7 @@ class argo::mon (
   $arc           = false,
 ) {
   include yum::repo::argo
+  include argo::mon::disable_ipv6
 
   if ($egi) {
     include ::yum::repo::umd4
