@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.4 - 5 Nov 2024
+
+* AO-1002 Disable IPv6 through ARGO Puppet module
+
 ### 1.8.3 - 24 Jul 2024
 
 * AO-991 Add the staging env certificate to the bundle
