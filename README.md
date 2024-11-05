@@ -13,20 +13,29 @@ forge 'http://forge.puppetlabs.com'
 
 # Forge | Puppet modules
 mod 'puppet-cron', '2.0.0'
+mod 'puppet-systemd', '3.10.0'
+mod 'puppetlabs-stdlib', '8.2.0'
 mod 'richardc-datacat', '0.6.2'
 mod 'sensu-sensu', '5.8.0'
 
-# GitHub Lutak Srce modules
+#GitHub Lutak Srce modules
 mod 'umd',
-  :git => 'https://github.com/lutak-srce/umd'
+  :git => 'https://github.com/lutak-srce/umd',
+  :ref => 'master'
 mod 'yum',
-  :git => 'https://github.com/lutak-srce/yum'
+  :git => 'https://github.com/lutak-srce/yum',
+  :ref => 'master'
 mod 'gridcert',
-  :git => 'https://github.com/lutak-srce/gridcert'
+  :git => 'https://github.com/lutak-srce/gridcert',
+  :ref => 'master'
+mod 'sysctl',
+  :git => 'https://github.com/lutak-srce/sysctl',
+  :ref => 'master'
 
-# ARGO module
+# ARGO modules
 mod 'argo',
-  :git => 'https://github.com/ARGOeu/argo-puppet'
+  :git => 'https://github.com/argo/argo-puppet',
+  :ref => 'master'
 ```
 
 ## Usage - configurations
@@ -242,6 +251,14 @@ gridcert::hostkey : 'puppet:///private/gridcert/hostkey.pem'
 
 argo::mon::robotcert::key : 'puppet:///private/robotcert/robotkey.pem'
 argo::mon::robotcert::cert: 'puppet:///private/robotcert/robotcert.pem'
+```
+
+### Disabling IPv6
+
+In case the IPv6 needs to be disabled on the server, it is necessary only to set parameter:
+
+```yaml
+argo::mon::disable_ipv6: true
 ```
 
 ### Custom setup for certain probes
