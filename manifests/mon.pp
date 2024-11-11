@@ -52,6 +52,7 @@ class argo::mon (
   if ($egi) {
     include argo::mon::condor
     include argo::mon::arc
+    include argo::mon::gfal
   }
   if ($eudat) {
     include argo::mon::eudat
