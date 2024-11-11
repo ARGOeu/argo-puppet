@@ -291,9 +291,13 @@ and everything will be configured automatically. The configuration file can be o
 argo::mon::arc:local_ini: puppet:///path/to/local_ini/file
 ```
 
+#### gfal setting for nagios-plugins-storage
+
+It is possible to override the `/etc/gfal2.d/http_plugin.conf` setting by setting up your own configuration file. Otherwise, the module will default to file `files/mon/gfal/http_plugin.conf`.
+
 #### EGI
 
-In case you wish to have both condor and ARC-CE probes set up, you can simply use:
+In case you wish to have both gfal setting, condor, and ARC-CE probes set up, you can simply use:
 
 ```yaml
 argo::mon::egi: true
