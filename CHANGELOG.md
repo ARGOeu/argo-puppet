@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.5 - 11 Nov 2024
+
+* AO-1004 Add configuration file for gfal in ARGO puppet module
+
 ### 1.8.4 - 5 Nov 2024
 
 * AO-1002 Disable IPv6 through ARGO Puppet module
