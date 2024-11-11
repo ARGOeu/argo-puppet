@@ -11,15 +11,10 @@ class argo::mon (
   $disable_ipv6  = false,
 ) {
   include yum::repo::argo
+  include ::yum::repo::igtf
 
   if ($disable_ipv6) {
     include argo::mon::disable_ipv6
-  }
-
-  if ($egi) {
-    include ::yum::repo::umd4
-  } else {
-    include ::yum::repo::igtf
   }
 
   if ($sensu) {
