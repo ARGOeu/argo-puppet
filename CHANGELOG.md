@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 1.8.6 - 3 Dec 2024
+
+* AO-1008 Include nordugrid-arc-plugins-arcrest in argo-puppet module
+
 ### 1.8.5 - 11 Nov 2024
 
 * AO-1004 Add configuration file for gfal in ARGO puppet module
