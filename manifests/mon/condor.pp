@@ -1,6 +1,7 @@
 class argo::mon::condor (
   $local_config='puppet:///modules/argo/mon/condor/condor_config.local',
   $version='10.x'
+  $enabled=1
 ) {
 
   File {
