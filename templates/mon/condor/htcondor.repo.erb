@@ -2,7 +2,7 @@
 name=HTCondor for Enterprise Linux 9 - Release
 baseurl=https://research.cs.wisc.edu/htcondor/repo/<%= @version  %>/el9/$basearch/release
 enabled=1
-<% if @version == 'True' -%>
+<% if @version == '10.x' -%>
 skip_if_unavailable=True
 <% end -%>
 gpgcheck=1
