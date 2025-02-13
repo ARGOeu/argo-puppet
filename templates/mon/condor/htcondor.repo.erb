@@ -1,0 +1,29 @@
+[htcondor]
+name=HTCondor for Enterprise Linux 9 - Release
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<%= @version  %>/el9/$basearch/release
+enabled=1
+<% if @version == 'True' -%>
+skip_if_unavailable=True
+<% end -%>
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://research.cs.wisc.edu/htcondor/repo/keys/HTCondor-<%= @version  %>-Key
+priority=90
+
+[htcondor-debuginfo]
+name=HTCondor for Enterprise Linux 9 - Release - Debug
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<%= @version  %>/el9/$basearch/release/debug
+enabled=0
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://research.cs.wisc.edu/htcondor/repo/keys/HTCondor-<%= @version  %>-Key
+priority=90
+
+[htcondor-source]
+name=HTCondor for Enterprise Linux 9 - Release - Source
+baseurl=https://research.cs.wisc.edu/htcondor/repo/<%= @version  %>/el9/$basearch/release/SRPMS
+enabled=0
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://research.cs.wisc.edu/htcondor/repo/keys/HTCondor-<%= @version  %>-Key
+priority=90

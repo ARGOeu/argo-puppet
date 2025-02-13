@@ -1,6 +1,6 @@
 class argo::mon::condor (
   $local_config='puppet:///modules/argo/mon/condor/condor_config.local',
-  $handle_repo=true
+  $version='10.x'
 ) {
 
   File {
@@ -10,12 +10,10 @@ class argo::mon::condor (
     mode   => '0644',
   }
 
-  if ($handle_repo) {
-    if (Integer($facts['os']['release']['major']) > 7) {
-      file { '/etc/yum.repos.d/htcondor.repo': 
-        source => 'puppet:///modules/argo/mon/condor/htcondor.repo',
-        mode   => '0644',
-      }
+  if (Integer($facts['os']['release']['major']) > 7) {
+    file { '/etc/yum.repos.d/htcondor.repo': 
+      content => template('argo/mon/condor/htcondor.repo.erb'),
+      mode   => '0644',
     }
   }
     
