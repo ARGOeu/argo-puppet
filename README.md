@@ -277,6 +277,20 @@ It is possible to override the configuration file, and it can be done by setting
 argo::mon::condor::local_config: puppet:///path/to/local_config/file
 ```
 
+It is possible to choose the version of condor you wish to have installed, in which case the proper `.repo` file is going to be created. It is set up in the yaml file like this:
+
+```yaml
+argo::mon::condor::version: '23.0'
+```
+
+If the version is not set explicitly, it is set to version `'10.x'` by default.
+
+It is also possible to disable the `htcondor.repo` by setting parameter `enable` to 0. By default it is enabled. Example of how to disable the repo:
+
+```yaml
+argo::mon::condor::enable: 0
+```
+
 #### ARC-CE probes
 
 For ARC-CE probes to work properly, besides the package providing the probes (`nordugrid-arc-nagios-plugins`), also packages `nordugrid-arc-nagios-plugins-egi`, `argo-probe-igtf` and `argo-probe-sensu` need to be additionally installed. There is also a configuration file that needs to be placed in proper directory (default file is `files/mon/egi/90-local.ini`). If The default file is sufficient, the `.yaml` file should simply contain:
