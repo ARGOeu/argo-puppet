@@ -12,6 +12,7 @@ class argo::mon (
 ) {
   include yum::repo::argo
   include ::yum::repo::igtf
+  include argo::mon::copr
 
   if ($disable_ipv6) {
     include argo::mon::disable_ipv6

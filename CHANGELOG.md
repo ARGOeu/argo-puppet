@@ -2,6 +2,11 @@
 
 Release notes for argo-puppet module
 
+### 1.8.7 - 14 Feb 2025
+
+* AO-1018 Include COPR repo in ARGO Puppet module
+* AO-1019 Update htcondor repo in ARGO Puppet module
+
 ### 1.8.6 - 3 Dec 2024
 
 * AO-1008 Include nordugrid-arc-plugins-arcrest in argo-puppet module
