@@ -3,7 +3,6 @@ class argo::mon::caupdate (
   $dir_source    = 'puppet:///modules/argo/mon/caupdate/pki/',
 ) {
 
-  include ::gridcert
   include ::gridcert::crl
 
   package{ 'ca-certificates':
