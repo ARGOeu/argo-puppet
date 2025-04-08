@@ -1,11 +1,9 @@
 class argo::mon (
   $gridcert      = false,
   $robotcert     = false,
-  $moncert       = false,
   $voms_htpasswd = false,
   $egi           = false,
   $eudat         = false,
-  $sensu         = false,
   $condor        = false,
   $arc           = false,
   $disable_ipv6  = false,
@@ -18,24 +16,9 @@ class argo::mon (
     include argo::mon::disable_ipv6
   }
 
-  if ($sensu) {
-    include argo::mon::sensu
-  } else {
-    include argo::mon::nagios
-
-    package {'nagios-plugins-dummy':
-      ensure =>  present,
-    }
-
-    include argo::mon::ncg
-    include argo::mon::amspublisher
-  }
-
+  include argo::mon::sensu
   include argo::mon::caupdate
 
-  if ($moncert) {
-    include argo::mon::moncert
-  }
   if ($gridcert) {
     include argo::mon::hostcert
   }
