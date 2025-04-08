@@ -1,6 +1,6 @@
 class argo::mon::amspublisher (
   $nagioshost              = '',
-  $runuser                 = 'nagios',
+  $runuser                 = 'sensu',
   $publisher_queues_topics = {},
 ) {
   package { 'python3-argo-ams-library':
@@ -13,17 +13,11 @@ class argo::mon::amspublisher (
     }
   }
 
-  if ($argo::mon::sensu) {
-    $package_name = 'argo-sensu-ams-publisher'
-    $conf_file    = '/etc/ams-publisher/ams-publisher-sensu.conf'
-    $service_name = 'ams-publisher-sensu.service'
-  } else {
-    $package_name = 'argo-nagios-ams-publisher'
-    $conf_file    = '/etc/ams-publisher/ams-publisher-nagios.conf'
-    $service_name = 'ams-publisher-nagios.service'
-  }
+  $package_name = 'argo-sensu-ams-publisher'
+  $conf_file    = '/etc/ams-publisher/ams-publisher-sensu.conf'
+  $service_name = 'ams-publisher-sensu.service'
 
-  package {$package_name:
+  package { $package_name:
     ensure => latest,
   }
 
