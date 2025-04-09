@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 2.0.0 - 9 Apr 2025
+
+* ARGO-4975 Remove support for Nagios
+
 ### 1.8.7 - 14 Feb 2025
 
 * AO-1018 Include COPR repo in ARGO Puppet module
