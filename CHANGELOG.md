@@ -2,6 +2,10 @@
 
 Release notes for argo-puppet module
 
+### 2.0.1 - 9 Apr 2025
+
+* ARGO-5119 Change top_bdii URL in configuration file
+
 ### 2.0.0 - 9 Apr 2025
 
 * ARGO-4975 Remove support for Nagios
