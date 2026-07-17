@@ -6,6 +6,8 @@ class argo::mon::scg (
   $webapi_url      = '',
   $tenant_sections = {},
   $agents_config   = '',
+  $cron_hour       = '*/2',
+  $cron_minute     = '15',
 ) {
 
   package {'argo-scg':
@@ -34,8 +36,8 @@ class argo::mon::scg (
   cron::job { 'scgReload':
       command     => '/bin/scg-reload.py',
       user        => 'root',
-      hour        => '*/2',
-      minute      => '15',
+      hour        => $cron_hour,
+      minute      => $cron_minute,
       environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
     }
 }
