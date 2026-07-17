@@ -1,5 +1,7 @@
 class argo::mon::poemtools (
   $tenants_data = {},
+  $cron_hour    = '*/2',
+  $cron_minute  = '45',
 ) {
   package {'argo-poem-tools':
     ensure => latest,
@@ -13,8 +15,8 @@ class argo::mon::poemtools (
   cron::job { 'poemPackages':
     command     => '/bin/argo-poem-packages.py',
     user        => 'root',
-    hour        => '*/2',
-    minute      => '45',
+    hour        => $cron_hour,
+    minute      => $cron_minute,
     environment => [ 'PATH=/sbin:/bin:/usr/sbin:/usr/bin' ],
   }
 }
