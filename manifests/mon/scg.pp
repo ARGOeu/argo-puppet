@@ -34,7 +34,7 @@ class argo::mon::scg (
   }
 
   cron::job { 'scgReload':
-      command     => '/bin/scg-reload.py',
+      command     => 'flock -n -E 1 /tmp/scg-reload.lock scg-reload.py',
       user        => 'root',
       hour        => $cron_hour,
       minute      => $cron_minute,
