@@ -1,7 +1,7 @@
 class argo::mon::arc (
   $local_ini='puppet:///modules/argo/mon/egi/90-local.ini',
 ) {
-  include yum::repo::nordugrid
+  include yum::repo::umd5
 
   File {
     ensure => present,
